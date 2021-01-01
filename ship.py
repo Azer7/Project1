@@ -1,8 +1,13 @@
-class Settings():
+import pygame
 
+class Ship():
+    
+    def __init__(self, ai_game):
 
-    def __init__(self):
-
-        self.screen_width = 1200
-        self.screen_height = 800
-        self.bg_color = (230, 230, 230)
+        self.screen = ai_game.screen
+        self.screen_rect = ai_game.screen.get_rect()
+        self.image = pygame.image.load('images/ship.bmp')
+        self.rect = self.image.get_rect()
+        self.rect.midbottom = self.screen_rect.midbottom
+    def blitme(self):
+        self.screen.blit(self.image, self.rect)
